@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foodista-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: foodista
+  template:
+    metadata:
+      labels:
+        app: foodista
+    spec:
+      containers:
+      - name: foodista
+        image: hithatreesathomas/foodista:latest
+        ports:
+        - containerPort: 80
